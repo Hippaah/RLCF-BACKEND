@@ -1,6 +1,6 @@
 package com.rlcf.spring.controllers;
 
-import com.rlcf.spring.security.services.FileStorageService;
+import com.rlcf.spring.Old.services.FileStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

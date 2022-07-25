@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: rlcf
+  datasource:
+    url: jdbc:mysql://localhost:3306/rlcf
+    username: root
+    password: root
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: email
+    password: password
+    sign: rlcf
+    location: None
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+security:
+  public:
+    endpoint:
+      /rlcf/api/api-docs/**,
+      /rlcf/api/swagger-ui/**,
+      /rlcf/api/accounts/login,
+      /rlcf/api/accounts/signUp
+  jwt:
+    secret: secret
+    expiration:
+      time: 2592000000
+  cors:
+    allowed:
+      origins: http://localhost:4200,http://127.0.0.1:4200
+      methods: HEAD,GET,POST,PUT,DELETE,PATCH
+      headers: Accept,Origin,Content-Type,Depth,User-Agent,If-Modified-Since,Cache-Control,Authorization,X-Req,X-File-Size,X-Requested-With,X-File-Name,No-Auth
+
+
+
+
+
+
+springdoc:
+  swagger-ui:
+    path: /rlcf/api/swagger-ui
+  api-docs:
+    path: /rlcf/api/api-docs
+
+server:
+  port: 8080
+
+default:
+  role: DEFAULT
+
+upload:
+  file:
+    path : C:/Users/lehje/OneDrive/Bureau/uploads/

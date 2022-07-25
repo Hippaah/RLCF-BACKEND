@@ -1,6 +1,7 @@
 package com.rlcf.spring.repository;
 
-
+import com.rlcf.spring.dto.AccountDTO;
+import com.rlcf.spring.models.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
  *
  */
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface AccountRepository extends JpaRepository<Account, Long> {
 
-	Optional<Role> findByRole(String role);
+	Optional<Account> findByLogin(String login);
 }

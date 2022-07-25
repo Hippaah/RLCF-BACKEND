@@ -1,4 +1,4 @@
-package com.rlcf.spring.security.services.ServiceImpl;
+package com.rlcf.spring.services.ServiceImpl;
 
 import com.rlcf.spring.dto.ClientDto;
 import com.rlcf.spring.dto.DemandDto;
@@ -6,18 +6,15 @@ import com.rlcf.spring.dto.ProductDto;
 import com.rlcf.spring.models.*;
 import com.rlcf.spring.repository.DemandRepository;
 import com.rlcf.spring.repository.FileRepository;
-import com.rlcf.spring.security.services.DemandService;
+import com.rlcf.spring.Old.services.DemandService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
