@@ -6,6 +6,7 @@ import com.rlcf.spring.dto.AccountDTO;
 import com.rlcf.spring.dto.AuthenticationDTO;
 import com.rlcf.spring.dto.JwtDTO;
 import com.rlcf.spring.models.Account;
+import com.rlcf.spring.models.Role;
 
 import java.util.List;
 import java.util.Optional;

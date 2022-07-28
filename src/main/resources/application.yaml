@@ -42,7 +42,7 @@ security:
     allowed:
       origins: http://localhost:4200,http://127.0.0.1:4200
       methods: HEAD,GET,POST,PUT,DELETE,PATCH
-      headers: Accept,Origin,Content-Type,Depth,User-Agent,If-Modified-Since,Cache-Control,Authorization,X-Req,X-File-Size,X-Requested-With,X-File-Name,No-Auth
+      headers: Accept,Origin,Content-Type,Depth,User-Agent,If-Modified-Since,Cache-Control,Authorization,X-Req,X-File-Size,X-Requested-With,X-File-Name,No-Auth,*
 
 
 

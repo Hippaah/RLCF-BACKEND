@@ -6,6 +6,7 @@ import com.rlcf.spring.dto.AccountDTO;
 import com.rlcf.spring.dto.AuthenticationDTO;
 import com.rlcf.spring.dto.JwtDTO;
 import com.rlcf.spring.models.Account;
+import com.rlcf.spring.models.Role;
 import com.rlcf.spring.repository.AccountRepository;
 import com.rlcf.spring.repository.RoleRepository;
 import com.rlcf.spring.services.AccountService;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -42,6 +44,8 @@ public class AccountImplService implements AccountService {
 
 	@Autowired
 	private AuthenticationManager authenticationManger;
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Value("${security.jwt.secret}")
 	private String secret;
@@ -84,6 +88,8 @@ public class AccountImplService implements AccountService {
 
 	@Override
 	public void createAccount(Account account) {
+		String cryptedPwd = bCryptPasswordEncoder.encode(account.getPassword());
+		account.setPassword(cryptedPwd);
 		accountRepository.save(account);
 	}
 

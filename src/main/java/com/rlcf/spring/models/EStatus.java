@@ -1,6 +1,10 @@
 package com.rlcf.spring.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.*;
+
+@Table(name = "status")
 
 public enum EStatus {
     EN_ATTENTE_VALIDATION(0,"EN_ATTENTE_VALIDATION"),
@@ -40,7 +44,6 @@ public enum EStatus {
         return enums;
     }
     public static EStatus valueOfValue(String value) {
-
         for(EStatus answer : EStatus.values()){
             if(answer.getValue().equals(value)){
                 return answer;
