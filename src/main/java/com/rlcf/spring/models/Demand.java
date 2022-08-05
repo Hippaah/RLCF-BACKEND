@@ -22,17 +22,14 @@ public class Demand {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-//    @Column()
-//    private int demandNum;
+    @Column(nullable = false)
+    private String creationDate;
 
     @Column(nullable = false)
-    private Date creationDate;
-
-    @Column(nullable = false)
-    private Date updateDate;
+    private String updateDate;
 
     @Column()
-    private Date validationDate;
+    private String validationDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_product")
@@ -46,18 +43,16 @@ public class Demand {
     @JoinColumn(name = "id_file")
     private FileExploi file;
 
-
     @Column
-    @Enumerated(EnumType.STRING)
-    private EStatus statut;
+    private String statut;
 
-    public Demand(Date creationDate, Date updateDate, EStatus statut){
+    public Demand(String creationDate, String updateDate, String statut){
         this.creationDate = creationDate;
         this.updateDate = updateDate;
         this.statut = statut;
     };
 
-    public Demand(Date updateDate, EStatus statut){
+    public Demand(String updateDate, String statut){
         this.updateDate = updateDate;
         this.statut = statut;
     };

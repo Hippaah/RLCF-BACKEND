@@ -13,11 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- *
- * @author CHICHI Hamza
- *
- */
+
 @RestController
 @RequestMapping("/rlcf/api/accounts")
 public class AccountController {

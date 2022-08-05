@@ -19,11 +19,7 @@ import org.springframework.web.servlet.HandlerMapping;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 
-/**
- * 
- * @author CHICHI Hamza
- *
- */
+
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 

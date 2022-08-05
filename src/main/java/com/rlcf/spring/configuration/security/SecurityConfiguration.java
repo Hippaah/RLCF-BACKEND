@@ -15,11 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-/**
- * 
- * @author CHICHI Hamza
- *
- */
+
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -58,14 +54,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-
-
-
 		http
 				.authorizeRequests()
 				.antMatchers("/api/**").permitAll();
-
-
 
 		http.cors().configurationSource(this.corsConfigurationSource);
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

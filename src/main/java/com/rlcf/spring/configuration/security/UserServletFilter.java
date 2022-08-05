@@ -6,11 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.*;
 import java.io.IOException;
 
-/**
- *
- * @author CHICHI Hamza
- *
- */
+
 
 @Component
 public class UserServletFilter implements Filter {

@@ -2,11 +2,7 @@ package com.rlcf.spring.dto;
 
 import javax.validation.constraints.NotBlank;
 
-/**
- *
- * @author CHICHI Hamza
- *
- */
+
 public class RoleDTO {
 
 	private Long id;

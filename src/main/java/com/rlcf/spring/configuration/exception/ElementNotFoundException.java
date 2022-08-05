@@ -2,11 +2,7 @@ package com.rlcf.spring.configuration.exception;
 
 import java.util.NoSuchElementException;
 
-/**
- *
- * @author CHICHI Hamza
- *
- */
+
 public class ElementNotFoundException extends NoSuchElementException {
 
     private static final long serialVersionUID = 1L;

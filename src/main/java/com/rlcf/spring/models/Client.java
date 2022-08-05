@@ -54,7 +54,7 @@ public class Client {
 
 
     @Column(length = 100)
-    private String  cdp;
+    private String cdp;
 
 
     @Column
@@ -72,7 +72,7 @@ public class Client {
     private String ville;
 
     @Column
-    private String rsp;
+    private String tam;
 
     }
 

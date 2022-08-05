@@ -5,11 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-/**
- *
- * @author CHICHI Hamza
- *
- */
+
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class JwtDTO {
 

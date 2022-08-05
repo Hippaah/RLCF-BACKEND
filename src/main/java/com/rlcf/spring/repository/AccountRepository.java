@@ -7,11 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-/**
- * 
- * @author CHICHI Hamza
- *
- */
+
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 

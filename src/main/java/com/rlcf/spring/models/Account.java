@@ -6,9 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-/**
- * @author CHICHI Hamza
- */
+
 @Entity
 @Table(name = "account")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -27,11 +25,11 @@ public class Account {
     @ManyToOne(cascade = CascadeType.ALL)
     private Role role;
 
-    @Override
-    public String toString() {
-        StringBuilder student = new StringBuilder("{ login : ");
-        return student.append(this.login).append(", password : ").append(this.password).append(" }").toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder student = new StringBuilder("{ login : ");
+//        return student.append(this.login).append(", password : ").append(this.password).append(" }").toString();
+//    }
 
     public Long getId() {
         return this.id;

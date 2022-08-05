@@ -1,7 +1,8 @@
-package com.rlcf.spring.Old.services;
+package com.rlcf.spring.services;
 
 import com.rlcf.spring.dto.DemandDto;
 import com.rlcf.spring.models.Demand;
+import com.rlcf.spring.models.EStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -19,4 +20,9 @@ public interface DemandService {
     public ResponseEntity<Demand> updateDemand(long id, DemandDto demandDto);
 
     public ResponseEntity<HttpStatus> deleteDemand(long id);
+
+    public ResponseEntity<Demand> validateDemand(long id);
+
+    public ResponseEntity<Demand> rejectDemand(long id);
+
     }

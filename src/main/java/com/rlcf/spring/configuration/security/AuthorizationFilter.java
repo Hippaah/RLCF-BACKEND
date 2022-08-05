@@ -21,11 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- * @author CHICHI Hamza
- *
- */
+
 @Component
 public class AuthorizationFilter extends OncePerRequestFilter {
 

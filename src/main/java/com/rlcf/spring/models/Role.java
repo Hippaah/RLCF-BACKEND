@@ -8,39 +8,28 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
+
+
+@Entity
+@Table(name = "role")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-
-/**
- *
- * @author CHICHI Hamza
- *
- */
-@Entity
-@Table(name = "role")
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private ERole role;
+
 
 	@Column
 	@Enumerated(EnumType.STRING)
-	private ERole rolee;
+	private ERole role;
 
-//	@Override
-//	public String toString() {
-//		StringBuilder student = new StringBuilder("{role : ");
-//		return student.append(this.role).append(" }").toString();
-//	}
-
-	public Role(ERole role){
-		this.role = role;
-	};
-
+   public Role(ERole eRole){
+	   this.role=eRole;
+   }
 
 
 }

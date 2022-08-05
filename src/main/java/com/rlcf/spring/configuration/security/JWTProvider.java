@@ -1,6 +1,7 @@
 package com.rlcf.spring.configuration.security;
 
 import com.rlcf.spring.configuration.exception.CustomAuthenticationException;
+import com.rlcf.spring.models.ERole;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -12,11 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Base64;
 import java.util.Date;
 
-/**
- * 
- * @author CHICHI Hamza
- *
- */
+
 @Component
 public class JWTProvider {
 
@@ -43,8 +40,11 @@ public class JWTProvider {
 
 	public static String resolveJWT(HttpServletRequest request) {
 		String jwt = request.getHeader("Authorization");
+		System.err.println(jwt);
+
 		if ((jwt != null) && jwt.startsWith("Bearer ")) {
 			jwt = jwt.substring(7);
+			System.err.println(jwt);
 			return jwt;
 		}
 		return "";
@@ -68,7 +68,7 @@ public class JWTProvider {
 		return date.before(new Date(System.currentTimeMillis())) ? true : false;
 	}
 
-	public static String generateJWT(String login, String role, String secret, long expirationTime) {
+	public static String generateJWT(String login, ERole role, String secret, long expirationTime) {
 		String jwt = Jwts.builder().setSubject(login)
 				.setExpiration(new Date(System.currentTimeMillis() + expirationTime))
 				.signWith(SignatureAlgorithm.HS512, Base64.getEncoder().encodeToString(secret.getBytes()))

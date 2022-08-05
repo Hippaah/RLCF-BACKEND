@@ -1,36 +1,46 @@
-package com.rlcf.spring.Old.services.ServiceImpl;
+package com.rlcf.spring.services.ServiceImpl;
 
 
 import com.rlcf.spring.models.FileExploi;
 import com.rlcf.spring.repository.FileRepository;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.stream.Stream;
 
-import com.rlcf.spring.Old.services.FileStorageService;
+import com.rlcf.spring.services.FileStorageService;
+import org.apache.tomcat.jni.FileInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.FileSystemResource;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Service
 @Transactional
 public class FileStorageImpl implements FileStorageService {
+    private enum ResourceType {
+        FILE_SYSTEM,
+        CLASSPATH
+    }
     @Autowired
     private FileRepository fileRepository;
 
     @Value("${upload.file.path}")
     private String path;
 
-
-//    public Long store(MultipartFile file) throws IOException {
-//        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-//        FileExploi File = new FileExploi(fileName, file.getContentType(), file.getBytes());
-//         FileExploi file1=fileRepository.save(File);
-//         return  file1.getId();
-//    }
 
     @Override
     public Long storeFile(MultipartFile file) throws IOException {
@@ -41,26 +51,31 @@ public class FileStorageImpl implements FileStorageService {
             output.close();
             FileExploi fileExploi =new FileExploi();
             fileExploi.setPath(file1.getPath());
+            fileExploi.setName(file.getOriginalFilename());
             fileRepository.save(fileExploi);
             return fileExploi.getId();
     }
-
-    @Override
-    public FileExploi getFile(String id) {
-        return null;
+    public Resource getFileSystem(Long id, HttpServletResponse response) {
+        Optional<FileExploi> file1 = fileRepository.findById(id);
+        String fileName = file1.get().getName();
+        return getResource(fileName, response, ResourceType.FILE_SYSTEM);
     }
 
-    @Override
-    public Stream<FileExploi> getAllFiles() {
-        return null;
+    private Resource getResource(String filename, HttpServletResponse response, ResourceType resourceType) {
+        response.setContentType("text/html");
+        response.setHeader("Content-Disposition", "attachment; filename=" + filename);
+        response.setHeader("filename", filename);
+
+        Resource resource = null;
+        switch (resourceType) {
+            case FILE_SYSTEM:
+                resource = new FileSystemResource(path + filename);
+                break;
+        }
+        return resource;
     }
 
-
-//    public FileExploi getFile(String id) {
-//        return fileRepository.findById(id).get();
-//    }
-//
-//    public Stream<FileExploi> getAllFiles() {
-//        return fileRepository.findAll().stream();
-//    }
 }
+
+
+

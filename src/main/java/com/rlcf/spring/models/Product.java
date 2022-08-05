@@ -41,7 +41,7 @@ public class Product {
      private String acces;
  
      @Column
-     private String ligneproduct;
+     private String ligneProduit;
  
      @Column
      private String bsSecSWPort;
@@ -77,7 +77,7 @@ public class Product {
      private String comment;
  
      @Column
-     private String deignationSDA;
+     private String designationSDA;
  
      @Column
      private String msisdn;

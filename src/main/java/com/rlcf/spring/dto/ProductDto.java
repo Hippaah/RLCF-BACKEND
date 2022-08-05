@@ -14,7 +14,7 @@ public class ProductDto {
   
    private String idConnexion;
       private String acces;
-      private String ligneproduct;
+      private String ligneProduit;
       private String bsSecSWPort;
       private String typeService;
       private String vlanVoix;
@@ -26,7 +26,7 @@ public class ProductDto {
       private String popSTraitant;
       private String numSDA;
       private String comment;
-      private String deignationSDA;
+      private String designationSDA;
       private String msisdn;
       private String etat;
       private String icc;

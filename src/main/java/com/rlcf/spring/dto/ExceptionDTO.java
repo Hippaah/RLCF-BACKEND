@@ -1,10 +1,6 @@
 package com.rlcf.spring.dto;
 
-/**
- *
- * @author CHICHI Hamza
- *
- */
+
 public class ExceptionDTO {
 
 	private String timestamp;

@@ -22,7 +22,7 @@ public class ClientDto {
        private String address;
        private String slaGtr;
        private String ville;
-       private String rsp;
+       private String tam;
 
 
 }

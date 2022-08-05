@@ -4,19 +4,14 @@ package com.rlcf.spring.controllers;
 import java.util.List;
 
 import com.rlcf.spring.dto.DemandDto;
-import com.rlcf.spring.Old.services.DemandService;
+import com.rlcf.spring.models.EStatus;
+import com.rlcf.spring.services.DemandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import com.rlcf.spring.models.Demand;
 
@@ -36,28 +31,43 @@ public class DemandController {
         return  demandService.saveDemand(demandDto);
     }
 
-
    @GetMapping("/demands")
    public ResponseEntity<List<Demand>> getDemands(){
         return demandService.getDemands();
    }
 
 
-   @GetMapping("/demands/{id}")
+    @GetMapping("/demands/{id}")
     public ResponseEntity<Demand> getDemandById(@PathVariable("id") long id) {
+
         return demandService.getDemandById(id);
     }
-
 
     @PutMapping("/demands/{id}")
     public ResponseEntity<Demand> updateDemand(@PathVariable("id") long id, @RequestBody DemandDto demandDto){
         return demandService.updateDemand(id,demandDto);
     }
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("demands/{id}")
     public ResponseEntity<HttpStatus> deleteDemand(@PathVariable("id") long id){
-        System.err.println("this is the var"+id);
         return demandService.deleteDemand(id);
     }
+
+    @PutMapping("/demands/validate/{id}")
+    public ResponseEntity<Demand> validateDemand(@PathVariable("id") long id){
+        return demandService.validateDemand(id);
+    }
+
+    @PutMapping("/demands/reject/{id}")
+    public ResponseEntity<Demand> rejectDemand(@PathVariable("id") long id){
+        return demandService.rejectDemand(id);
+    }
+
+//    @GetMapping("/demands/client")
+//    public ResponseEntity<List<Demand>> getDemandClientId(@RequestBody String statut) {
+//        return demandService.getDemandStatus(statut);
+//    }
+
+
 
 }

@@ -6,6 +6,7 @@ import com.rlcf.spring.dto.AccountDTO;
 import com.rlcf.spring.dto.AuthenticationDTO;
 import com.rlcf.spring.dto.JwtDTO;
 import com.rlcf.spring.models.Account;
+import com.rlcf.spring.models.ERole;
 import com.rlcf.spring.models.Role;
 import com.rlcf.spring.repository.AccountRepository;
 import com.rlcf.spring.repository.RoleRepository;
@@ -74,7 +75,7 @@ public class AccountImplService implements AccountService {
 				new UsernamePasswordAuthenticationToken(authenticationDTO.getLogin(), authenticationDTO.getPassword()));
 		Account account = this.findByLogin(authenticationDTO.getLogin()).orElse(null);
 		String jwt = JWTProvider.generateJWT(authenticationDTO.getLogin(),
-				((account != null) && (account.getRole() != null)) ? String.valueOf(account.getRole().getRole()) : this.defaultRole,
+				((account != null) && (account.getRole() != null)) ? (account.getRole().getRole()) : ERole.ROLE_RO,
 				this.secret, this.expirationTime);
 		JwtDTO jwtDTO = new JwtDTO();
 		jwtDTO.setJwt(jwt);

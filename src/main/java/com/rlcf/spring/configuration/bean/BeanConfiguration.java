@@ -23,11 +23,7 @@ import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * 
- * @author CHICHI Hamza
- *
- */
+
 @Configuration
 public class BeanConfiguration {
 

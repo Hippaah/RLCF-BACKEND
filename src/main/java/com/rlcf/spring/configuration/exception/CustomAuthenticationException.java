@@ -2,11 +2,6 @@ package com.rlcf.spring.configuration.exception;
 
 import org.springframework.security.core.AuthenticationException;
 
-/**
- * 
- * @author CHICHI Hamza
- *
- */
 public class CustomAuthenticationException extends AuthenticationException {
 
 	private static final long serialVersionUID = 1L;

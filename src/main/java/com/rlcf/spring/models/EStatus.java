@@ -4,13 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.*;
 
+
 @Table(name = "status")
 
+
 public enum EStatus {
-    EN_ATTENTE_VALIDATION(0,"EN_ATTENTE_VALIDATION"),
-    VALIDER(1,"VALIDER"),
-    REJETER(2,"REJETER"),
-    SUPPRIMER(3,"SUPPRIMER");
+    EN_ATTENTE_VALIDATION(0,"En attente de validation"),
+    VALIDER(1,"Validé"),
+    REJETER(2,"Rejeté"),
+    SUPPRIMER(3,"Supprimé");
     private int code;
     private String value;
 

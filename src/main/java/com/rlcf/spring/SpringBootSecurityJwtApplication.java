@@ -15,16 +15,15 @@ public class SpringBootSecurityJwtApplication implements CommandLineRunner {
 	@Autowired
 	AccountService accountService;
 	public static void main(String[] args) {
-
 		SpringApplication.run(SpringBootSecurityJwtApplication.class, args);
-
-
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-        accountService.createAccount(new Account("testrw","testpass", new Role(ERole.ROLE_RW)));
-		accountService.createAccount(new Account("testro","rootpass",new Role(ERole.ROLE_RO)));
+//      accountService.createAccount(new Account("testrw","testpass", new Role(ERole.ROLE_RW)));
+//	  accountService.createAccount(new Account("testro1","testpass",new Role(ERole.ROLE_RO)));
+//	  accountService.createAccount(new Account("testadmin","testpass", new Role(ERole.ROLE_ADMIN)));
+
 	}
 }
 
