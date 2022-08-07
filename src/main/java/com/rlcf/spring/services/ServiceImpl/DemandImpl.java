@@ -61,22 +61,9 @@ public class DemandImpl implements DemandService {
     }
 
      @Override
-     public ResponseEntity<List<Demand>> getDemands() {
-             List<Demand> demands = new ArrayList<Demand>();
-         try {
-                 demandRepository.findAll().forEach(demands::add);
-
- 
-                 if (demands.isEmpty()) {
-                     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-                 }
- 
-             return new ResponseEntity<>(demands, HttpStatus.OK);
-         } catch (Exception e) {
-             System.out.print(e.getMessage());
+     public List<Demand> getDemands() {
+             return  demandRepository.findAll();
          }
-         return new ResponseEntity<>(demands, HttpStatus.OK);
-     }
 
      @Override
      public ResponseEntity<Demand> getDemandById(@PathVariable("id") long id) {

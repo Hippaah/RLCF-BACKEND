@@ -61,10 +61,8 @@ public class FileController {
 
         Optional<FileExploi> file1 = fileRepository.findById(id);
         String name = file1.get().getName();
-        System.err.println(fileRepository.findById(id).isPresent());
         if (fileRepository.findById(id).isPresent()) {
             String path1 = file1.get().getPath();
-            System.err.println(path1.isEmpty());
             File file2Upload = new File(path1);
             HttpHeaders headers = new HttpHeaders();
 

@@ -13,7 +13,7 @@ public interface DemandService {
 
     public ResponseEntity<Demand> saveDemand(DemandDto demandDto);
 
-    public ResponseEntity<List<Demand>> getDemands();
+    public List<Demand> getDemands();
 
     public ResponseEntity<Demand> getDemandById(long id);
 

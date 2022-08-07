@@ -89,7 +89,7 @@ public class Product {
      private String icc;
  
      @Column
-     private Date dateService;
+     private String dateService;
  
      @Column
      private String numSerie;

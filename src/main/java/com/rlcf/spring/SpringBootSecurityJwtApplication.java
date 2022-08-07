@@ -20,9 +20,9 @@ public class SpringBootSecurityJwtApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//      accountService.createAccount(new Account("testrw","testpass", new Role(ERole.ROLE_RW)));
-//	  accountService.createAccount(new Account("testro1","testpass",new Role(ERole.ROLE_RO)));
-//	  accountService.createAccount(new Account("testadmin","testpass", new Role(ERole.ROLE_ADMIN)));
+      accountService.createAccount(new Account("testrw","testpass", new Role(ERole.ROLE_RW)));
+	  accountService.createAccount(new Account("testro1","testpass",new Role(ERole.ROLE_RO)));
+      accountService.createAccount(new Account("testadmin","testpass", new Role(ERole.ROLE_ADMIN)));
 
 	}
 }

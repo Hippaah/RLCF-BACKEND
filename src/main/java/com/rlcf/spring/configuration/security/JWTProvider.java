@@ -40,11 +40,9 @@ public class JWTProvider {
 
 	public static String resolveJWT(HttpServletRequest request) {
 		String jwt = request.getHeader("Authorization");
-		System.err.println(jwt);
 
 		if ((jwt != null) && jwt.startsWith("Bearer ")) {
 			jwt = jwt.substring(7);
-			System.err.println(jwt);
 			return jwt;
 		}
 		return "";

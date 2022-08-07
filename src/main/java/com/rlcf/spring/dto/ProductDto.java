@@ -30,7 +30,7 @@ public class ProductDto {
       private String msisdn;
       private String etat;
       private String icc;
-      private Date dateService;
+      private String dateService;
       private String numSerie;
       private String dateRealisation;
       private String imei;
