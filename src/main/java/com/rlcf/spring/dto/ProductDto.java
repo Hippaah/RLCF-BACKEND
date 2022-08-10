@@ -34,5 +34,4 @@ public class ProductDto {
       private String numSerie;
       private String dateRealisation;
       private String imei;
-      private String urlGlobus;
 }

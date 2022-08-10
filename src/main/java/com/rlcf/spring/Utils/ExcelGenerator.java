@@ -75,7 +75,6 @@ public class ExcelGenerator {
         createCell(row, 36, "Numero de serie", style);
         createCell(row, 37, "Date de realisation", style);
         createCell(row, 38, "IMEI", style);
-        createCell(row, 39, "URL Globus", style);
 
     }
     private void createCell(Row row, int columnCount, Object valueOfCell, CellStyle style) {
@@ -146,7 +145,6 @@ public class ExcelGenerator {
             createCell(row, columnCount++,demand.getProduct().getNumSerie(), style);
             createCell(row, columnCount++,demand.getProduct().getDateRealisation(), style);
             createCell(row, columnCount++,demand.getProduct().getImei(), style);
-            createCell(row, columnCount++,demand.getProduct().getUrlGlobus(), style);
         }
 
     }

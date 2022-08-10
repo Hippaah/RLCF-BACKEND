@@ -99,7 +99,5 @@ public class Product {
  
      @Column
      private String imei;
- 
-     @Column
-     private String urlGlobus;
+
 }
